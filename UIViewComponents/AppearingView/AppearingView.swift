@@ -22,17 +22,18 @@ public class AppearingView: UIView {
     
     public func hide(){
         UIView.animate(withDuration: self.duration, animations: {
-            self.setPosition(value: self.animationDirection == .up ? -130 : +130);
             self.alpha=0;
+            self.setPosition(value: self.animationDirection == .up ? +130 : -130);
         })
     }
     public func show(){
         UIView.animate(withDuration: self.duration, animations: {
-            self.setPosition(value: self.animationDirection == .up ? +130 : -130)
             self.alpha=1;
+            self.setPosition(value: self.animationDirection == .up ? -130 : +130)
         })
     }
     public func myinit(animationDir:AnimationDirection){
+        self.animationDirection=animationDir;
         self.alpha=0;
         self.setPosition(value: animationDir == .up ? +130 : -130)
     }
